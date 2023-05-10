@@ -38,16 +38,24 @@ if ( isset($_GET['id']) ){
     <form method="POST" action="edit.php">
         <div class="form-group">
             <label for="idStudent">ID Etudiant</label>
-            <input type="number" class="form-control" id="idStudent" aria-describedby="idHelp" placeholder="Id de l'étudiant" name="idStudent" value="<?php if ( isset( $studentData['id'] ) ){ echo  $studentData['id']; } ?>" >
+            <input type="number" class="form-control" id="idStudent"
+                   aria-describedby="idHelp" placeholder="Id de l'étudiant"
+                   name="idStudent"
+                   value="<?php if ( isset( $studentData['id'] ) ){ echo  $studentData['id']; } ?>" >
+
             <small id="idHelp" class="form-text text-muted">Identifiant unique de l'étudiant (non modifiable)</small>
         </div>
         <div class="form-group">
             <label for="nameStudent">Nom</label>
-            <input type="text" class="form-control" id="nameStudent" placeholder="Nom" name="nameStudent" value="<?php if ( isset( $studentData['nom'] ) ) { echo  $studentData['nom']; } ?>" >
+            <input type="text" class="form-control" id="nameStudent" placeholder="Nom"
+                   name="nameStudent"
+                   value="<?php if ( isset( $studentData['nom'] ) ) { echo  $studentData['nom']; } ?>" >
         </div>
         <div class="form-group">
             <label for="firstnameStudent">Prénom</label>
-            <input type="text" class="form-control" id="firstnameStudent" placeholder="Prénom" name="firstnameStudent" value="<?php if ( isset( $studentData['prenom'] ) ) { echo  $studentData['prenom']; } ?>" >
+            <input type="text" class="form-control" id="firstnameStudent" placeholder="Prénom"
+                   name="firstnameStudent"
+                   value="<?php if ( isset( $studentData['prenom'] ) ) { echo  $studentData['prenom']; } ?>" >
         </div>
 
         <input type="submit" class="btn btn-primary">Ajout / Modifier</input>
