@@ -3,6 +3,7 @@
      * Inclure les fichiers nécessaires
      */
     require_once ('inc/db.php');
+    require_once ('inc/Students.php');
 
     // Instance de DB
     $connecteur = new DB();
@@ -12,6 +13,9 @@
 
     // Appel de la méthode qui va aller chercher la liste de TOUS les étudiants
     $listeEtudiants = $connecteur->findAllStudents();
+
+    $objetEtudiant = new Students();
+    $tableEtudiants = $objetEtudiant->displayTable( $listeEtudiants );
 ?>
 <!doctype html>
 <html lang="fr">
@@ -26,24 +30,7 @@
 <body>
     <h1>Liste des étudiants</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Actions</th>
-            </tr>
-            </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Editer - Supprimer</td>
-            </tr>
-        </tbody>
-    </table>
+    <?= $tableEtudiants; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
