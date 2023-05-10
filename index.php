@@ -10,11 +10,8 @@
     // Appel de la méthode de connexion de l'objet DB
     $connecteur->connexion();
 
-    // Appel de la méthode qui va aller chercher TOUS les étudiants
-    $etudiants = $connecteur->findAllStudents();
-
-    var_dump($etudiants);
-    die();
+    // Appel de la méthode qui va aller chercher la liste de TOUS les étudiants
+    $listeEtudiants = $connecteur->findAllStudents();
 ?>
 <!doctype html>
 <html lang="fr">
@@ -31,20 +28,20 @@
 
     <table class="table">
         <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Actions</th>
-        </tr>
-        </thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Editer - Supprimer</td>
-        </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>Editer - Supprimer</td>
+            </tr>
         </tbody>
     </table>
 

@@ -17,23 +17,31 @@ class DB
     // Méthodes
     public function connexion()
     {
+        // Utilisation de la classe PDO
         // https://www.php.net/manual/fr/class.pdo.php
 
         // DSN = Data Source Name
             // mysql:dbname=testdb;host=127.0.0.1
             // Création du DSN à partir des attributs
         // En MySQL
-        //$dsn = 'mysql:dbname=' . $this->db_name . ';host=' . $this->db_host;
+            //$dsn = 'mysql:dbname=' . $this->db_name . ';host=' . $this->db_host;
         // En SQLite
         $dsn = 'sqlite:./DATA/database.sqlite';
 
         // Appel du constructeur de PDO
+        // On stocke le handler dans $this->dbh
         $this->dbh = new PDO( $dsn, $this->db_user, $this->db_pass );
 
         // echo gettype( $dbh ); // Renvoie Object PDO
     }
 
-    public function findAllStudents()
+    /**
+     * Méthode qui va renvoyer un tableau contenant les étudiants
+     *
+     *
+     * @return array
+     */
+    public function findAllStudents() : array
     {
         // Requête
         $query = 'SELECT * FROM ETUDIANT';
