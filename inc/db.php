@@ -22,6 +22,7 @@ class DB
         // DSN = Data Source Name
             // mysql:dbname=testdb;host=127.0.0.1
             // Création du DSN à partir des attributs
+        // En MySQL
         //$dsn = 'mysql:dbname=' . $this->db_name . ';host=' . $this->db_host;
         // En SQLite
         $dsn = 'sqlite:./DATA/database.sqlite';
