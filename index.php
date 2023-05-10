@@ -45,7 +45,7 @@
                         echo '<th scope="row">' . $student['id'] .'</th>';
                         echo '<td>' . $student['nom'] .'</td>';
                         echo '<td>' . $student['prenom'] .'</td>';
-                        echo '<td>Editer - Supprimer</td>';
+                        echo '<td> <a href="edit.php?id=' . $student['id'] . '">Editer</a> - Supprimer</td>';
                     echo '</tr>';
                 }
             ?>

@@ -57,4 +57,35 @@ class DB
             die('Erreur');
         }
     }
+
+    /**
+     * Méthode qui va renvoyer un tableau contenant les étudiants
+     *
+     *
+     * @return array
+     */
+    public function findOneStudent( int $id ) : array
+    {
+        // Requête
+        $query = 'SELECT * FROM ETUDIANT WHERE id = :idStudent';
+
+        try {
+
+            // Utilisation du dbh pour lancer la requête
+            // https://www.php.net/manual/fr/pdo.query.php
+            $statement = $this->dbh->prepare($query);
+
+            // Ajout du paramètre à la requête préparée
+            $statement->bindParam('idStudent', $id);
+
+            // Exécution de la requête
+            $statement->execute();
+
+            // Renvoi du résultat
+            return $statement->fetch();
+        }
+        catch (PDOException $e){
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
 }

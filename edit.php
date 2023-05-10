@@ -1,3 +1,27 @@
+<?php
+/**
+ * Selon la méthode par laquelle on arrive sur cette page, le comportement diffère
+ */
+// Vérification que des données ont été envoyées par POST
+if ( isset($_POST['idStudent']) && isset($_POST['nameStudent']) && isset($_POST['firstnameStudent']) ){
+    echo "POST envoyé";
+}
+
+// Vérification si l'on arrive sur un état de modification
+if ( isset($_GET['id']) ){
+    // On vérifie qu'un étudiant avec et ID existe bien
+    require_once ('inc/db.php');
+
+    // Instance de DB
+    $connecteur = new DB();
+
+    // Appel de la méthode de connexion de l'objet DB
+    $connecteur->connexion();
+
+    // Appel de la méthode qui va aller chercher la liste de TOUS les étudiants
+    $studentData = $connecteur->findOneStudent( $_GET['id'] );
+}
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -11,22 +35,22 @@
 <body>
     <h1>Ajout / Edition d'un étudiant</h1>
 
-    <form>
+    <form method="POST" action="edit.php">
         <div class="form-group">
             <label for="idStudent">ID Etudiant</label>
-            <input type="number" class="form-control" id="idStudent" aria-describedby="idHelp" placeholder="Id de l'étudiant">
+            <input type="number" class="form-control" id="idStudent" aria-describedby="idHelp" placeholder="Id de l'étudiant" name="idStudent" value="<?php if ( isset( $studentData['id'] ) ){ echo  $studentData['id']; } ?>" >
             <small id="idHelp" class="form-text text-muted">Identifiant unique de l'étudiant (non modifiable)</small>
         </div>
         <div class="form-group">
             <label for="nameStudent">Nom</label>
-            <input type="text" class="form-control" id="nameStudent" placeholder="Nom">
+            <input type="text" class="form-control" id="nameStudent" placeholder="Nom" name="nameStudent" value="<?php if ( isset( $studentData['nom'] ) ) { echo  $studentData['nom']; } ?>" >
         </div>
         <div class="form-group">
             <label for="firstnameStudent">Prénom</label>
-            <input type="text" class="form-control" id="firstnameStudent" placeholder="Prénom">
+            <input type="text" class="form-control" id="firstnameStudent" placeholder="Prénom" name="firstnameStudent" value="<?php if ( isset( $studentData['prenom'] ) ) { echo  $studentData['prenom']; } ?>" >
         </div>
 
-        <button type="submit" class="btn btn-primary">Ajout / Modifier</button>
+        <input type="submit" class="btn btn-primary">Ajout / Modifier</input>
     </form>
 
     <a href="index.php" class="btn btn-primary">Retour à la liste</a>
