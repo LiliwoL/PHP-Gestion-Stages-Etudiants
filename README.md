@@ -4,12 +4,31 @@ L'objectif est de créer une application de gestion des stages des étudiants.
 
 # Rappel
 
-Sur la WSL, les services **apache2** et **mariadb** divent être lancés.
+Sur la WSL, les services **apache2** et **mariadb** doivent être lancés.
 
 ```bash
 sudo service apache2 start
 sudo service mariadb start
 ```
+
+Vous devez avoir accès au serveur web via un navigateur et travailler dans le **DocumentRoot** de votre serveur Web.
+
+# Sommaire
+
+<!-- TOC -->
+* [Application de gestion des étudiants](#application-de-gestion-des-tudiants)
+* [Rappel](#rappel)
+* [Sommaire](#sommaire)
+* [Base de données](#base-de-donnes)
+  * [Table ETUDIANT](#table-etudiant)
+  * [Requêtes à utiliser](#requtes--utiliser)
+    * [Lecture](#lecture)
+    * [Mise à jour](#mise--jour)
+    * [Suppression](#suppression)
+    * [Création](#cration)
+<!-- TOC -->
+
+***
 
 # Base de données
 
@@ -23,8 +42,6 @@ sudo service mariadb start
 Accéder à PHPMyAdmin via l'URL correpondante à votre WSL.
 
 Ici, ce sera *http://localhost/phpmyadmin*.
-
-> Vous devez disposer une d'une base de données spécifique ainsi que d'un utilisateur autorisé à se connecter et manipuler les données de cette base.
 
 ## Table ETUDIANT
 
@@ -69,3 +86,15 @@ DELETE ......
 ```sql
 INSERT ......
 ```
+
+# Fichiers HTML (FrontEnd)
+
+Abordons maintenant l'aspect visuel.
+
+## Affichage d'un tableau affichant toutes les données
+
+Ce tableau affichera les informations ainsi que des liens permettant la suppression
+
+## Formulaire de création net modification
+
+Un formulaire contenant les champs *nom* et *prenom*.
