@@ -12,10 +12,11 @@
     $connecteur->connexion();
 
     // Appel de la méthode qui va aller chercher la liste de TOUS les étudiants
-    $listeEtudiants = $connecteur->findAllStudents();
+    $studentsList = $connecteur->findAllStudents();
 
-    $objetEtudiant = new Students();
-    $tableEtudiants = $objetEtudiant->displayTable( $listeEtudiants );
+    // Création d'un objet Etudiant pour l'affichage du tableau des étudiants
+    $studentsObject = new Students();
+    $studentsTable = $studentsObject->displayTable( $studentsList );
 ?>
 <!doctype html>
 <html lang="fr">
@@ -30,7 +31,7 @@
 <body>
     <h1>Liste des étudiants</h1>
 
-    <?= $tableEtudiants; ?>
+    <?= $studentsTable; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
