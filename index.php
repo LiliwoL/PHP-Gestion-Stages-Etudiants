@@ -1,43 +1,53 @@
 <?php
-    /** Inclusion des fichiers nécessaires */
-    require_once ('inc/db.php' );
-    require_once ('inc/Students.php' );
-
-
     /**
-     * Initialisation des variables et objets
+     * Inclure les fichiers nécessaires
      */
-    // Objet gestion Base de données (connexion immédiate)
-    $db = new DB();
+    require_once ('inc/db.php');
 
+    // Instance de DB
+    $connecteur = new DB();
 
-    /**
-    *   Selon l'url sur laquelle on est, on appelle des méthodes de DB différentes
-    */
-    switch ( $_GET['action'] )
-    {
-        // Lecture des étudiants
-        case 'read_students':
-            // Appel de la méthode de récupération des étudiants
-            $students_data = $db->findAllStudents();
+    // Appel de la méthode de connexion de l'objet DB
+    $connecteur->connexion();
 
-            // Instance de etudiants
-            $students_obj = new Students();
+    // Appel de la méthode qui va aller chercher TOUS les étudiants
+    $etudiants = $connecteur->findAllStudents();
 
-            // Appel de la méthode d'affichage des étudiants
-            $output = $students_obj->display( $students_data );
-            break;
-    }
-
+    var_dump($etudiants);
+    die();
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Gestion Stages des étudiants</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AP Gestion des étudiants</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
 </head>
 <body>
+    <h1>Liste des étudiants</h1>
 
-<?= $output ?>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Editer - Supprimer</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,53 +1,49 @@
 <?php
-
 /**
- * Classe d'interfaçage avec la base de données
+ * Définition de la classe DB
  */
-
 class DB
 {
     // Attributs
-    private $dbh;
+    private string $db_user = "slam1";
+    private string $db_pass = "SlaM1";
+    private string $db_name = "AP";
+    private string $db_host = "127.0.0.1";
+    private object $dbh; // Attribut qui conservera l'objet PDO
+
+
+    // ************************************
 
     // Méthodes
-    // ****************************
-
-    // Constructeur
-    public function __construct()
+    public function connexion()
     {
-        // Inclusion des fichiers nécessaires
-        require_once ('inc/config.php');
+        // https://www.php.net/manual/fr/class.pdo.php
 
-        // Connexion à la base avec le constructeur de PDO
-            // https://www.php.net/manual/fr/pdo.construct.php
-        $this->dbh = new PDO( DSN, DB_USER, DB_PASS);
+        // DSN = Data Source Name
+            // mysql:dbname=testdb;host=127.0.0.1
+            // Création du DSN à partir des attributs
+        $dsn = 'mysql:dbname=' . $this->db_name . ';host=' . $this->db_host;
+
+        // Appel du constructeur de PDO
+        $this->dbh = new PDO( $dsn, $this->db_user, $this->db_pass );
+
+        // echo gettype( $dbh ); // Renvoie Object PDO
     }
 
-    // READ
-    // ***************************
-
-    // Lecture des étudiants
-    public function findAllStudents ()
+    public function findAllStudents()
     {
-        $output = [];
-
         // Requête
-        $query = "SELECT * FROM STUDENTS";
+        $query = 'SELECT * FROM ETUDIANT';
 
-        // Préparation de la requête et récupération de son statement
-        $statement = $this->dbh->prepare( $query );
+        // Utilisation du dbh pour lancer la requête
+            // https://www.php.net/manual/fr/pdo.query.php
+        $statement = $this->dbh->query( $query );
 
-        if ( $statement ) {
-            // Exécution de la requête préparée (= statement)
-            $countResults = $statement->execute();
-
-            // Test du résultat et affichage si OK
-            if ($countResults !== 0) {
-                // Renvoi du tableau des résultats
-                $output = $statement->fetchAll();
-            }
+        if ( $statement ){
+            // Renvoi des résultats
+            return $statement->fetchAll();
+        }else{
+            die('Erreur');
         }
-
-        return $output;
     }
 }
