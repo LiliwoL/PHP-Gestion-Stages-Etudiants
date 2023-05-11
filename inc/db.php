@@ -26,7 +26,7 @@ class DB
         // En MySQL
             //$dsn = 'mysql:dbname=' . $this->db_name . ';host=' . $this->db_host;
         // En SQLite
-        $dsn = 'sqlite:./DATA/database.sqlite';
+            $dsn = 'sqlite:./DATA/database.sqlite';
 
         // Appel du constructeur de PDO
         // On stocke le handler dans $this->dbh

@@ -26,7 +26,28 @@ Vous devez avoir accès au serveur web via un navigateur et travailler dans le *
     * [Mise à jour](#mise--jour)
     * [Suppression](#suppression)
     * [Création](#cration)
+* [Fichiers HTML (FrontEnd)](#fichiers-html--frontend-)
+  * [Code de base pour une pahe HTML utilisant Bootstrap](#code-de-base-pour-une-pahe-html-utilisant-bootstrap)
+  * [Affichage d'un tableau affichant toutes les données](#affichage-dun-tableau-affichant-toutes-les-donnes)
+  * [Formulaire de création et modification](#formulaire-de-cration-et-modification)
 <!-- TOC -->
+
+***
+
+# Schéma
+
+Evidemment, avant de se lancer dans un projet, on passe à la phase d'analyse.
+
+
+Navigation:
+![](readme_docs/navigation.png)
+
+Page qui affichera la liste des étudiants:
+![](readme_docs/studentListPage.png)
+
+
+Page qui affichera un formulaire de création / modification:
+![](readme_docs/studentCreationPage.png)
 
 ***
 
@@ -188,3 +209,12 @@ Bootstrap propose des classes spécifiques pour améliorer l'affichage des formu
       <input type="submit" class="btn btn-primary" value="Ajouter / Modifier"/>
     </form>
 ```
+
+***
+
+# Classes PHP
+
+Maintenant que la base de données est prête et que les fichiers HTML sont prêts, il faut connecter tout ça.
+C'est le rôle du contrôleur, ici, les scripts PHP.
+
+On utilisera donc un **script d'entrée**, c'est à dire le script principal qui appellera tous les autres.
