@@ -185,6 +185,6 @@ Bootstrap propose des classes spécifiques pour améliorer l'affichage des formu
                    value="" >
         </div>
 
-        <input type="submit" class="btn btn-primary">Ajout / Modifier</input>
+      <input type="submit" class="btn btn-primary" value="Ajouter / Modifier"/>
     </form>
 ```

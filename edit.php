@@ -33,36 +33,41 @@ if ( isset($_GET['id']) ){
     
 </head>
 <body>
-    <h1>Ajout / Edition d'un étudiant</h1>
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1>Ajout / Edition d'un étudiant</h1>
 
-    <form method="POST" action="edit.php">
-        <div class="form-group">
-            <label for="idStudent">ID Etudiant</label>
-            <input type="number" class="form-control" id="idStudent"
-                   aria-describedby="idHelp" placeholder="Id de l'étudiant"
-                   name="idStudent"
-                   value="<?php if ( isset( $studentData['id'] ) ){ echo  $studentData['id']; } ?>" >
+                <form method="POST" action="edit.php">
+                    <div class="form-group">
+                        <label for="idStudent">ID Etudiant</label>
+                        <input type="number" class="form-control" id="idStudent"
+                               aria-describedby="idHelp" placeholder="Id de l'étudiant"
+                               name="idStudent"
+                               value="<?php if ( isset( $studentData['id'] ) ){ echo  $studentData['id']; } ?>" >
 
-            <small id="idHelp" class="form-text text-muted">Identifiant unique de l'étudiant (non modifiable)</small>
+                        <small id="idHelp" class="form-text text-muted">Identifiant unique de l'étudiant (non modifiable)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="nameStudent">Nom</label>
+                        <input type="text" class="form-control" id="nameStudent" placeholder="Nom"
+                               name="nameStudent"
+                               value="<?php if ( isset( $studentData['nom'] ) ) { echo  $studentData['nom']; } ?>" >
+                    </div>
+                    <div class="form-group">
+                        <label for="firstnameStudent">Prénom</label>
+                        <input type="text" class="form-control" id="firstnameStudent" placeholder="Prénom"
+                               name="firstnameStudent"
+                               value="<?php if ( isset( $studentData['prenom'] ) ) { echo  $studentData['prenom']; } ?>" >
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="Ajouter / Modifier"/>
+                </form>
+
+                <a href="index.php" class="btn btn-primary">Retour à la liste</a>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="nameStudent">Nom</label>
-            <input type="text" class="form-control" id="nameStudent" placeholder="Nom"
-                   name="nameStudent"
-                   value="<?php if ( isset( $studentData['nom'] ) ) { echo  $studentData['nom']; } ?>" >
-        </div>
-        <div class="form-group">
-            <label for="firstnameStudent">Prénom</label>
-            <input type="text" class="form-control" id="firstnameStudent" placeholder="Prénom"
-                   name="firstnameStudent"
-                   value="<?php if ( isset( $studentData['prenom'] ) ) { echo  $studentData['prenom']; } ?>" >
-        </div>
-
-        <input type="submit" class="btn btn-primary">Ajout / Modifier</input>
-    </form>
-
-    <a href="index.php" class="btn btn-primary">Retour à la liste</a>
-
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
