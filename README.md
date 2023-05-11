@@ -217,4 +217,8 @@ Bootstrap propose des classes spécifiques pour améliorer l'affichage des formu
 Maintenant que la base de données est prête et que les fichiers HTML sont prêts, il faut connecter tout ça.
 C'est le rôle du contrôleur, ici, les scripts PHP.
 
-On utilisera donc un **script d'entrée**, c'est à dire le script principal qui appellera tous les autres.
+On utilisera donc un **script d'entrée**, c'est-à-dire le script principal qui appellera tous les autres.
+
+## Classe DB
+
+Cette classe permettra la connexion à la base de données, d'effectuer les requêtes (rédigées plus haut).
