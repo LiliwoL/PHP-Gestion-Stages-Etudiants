@@ -24,35 +24,41 @@
 
 </head>
 <body>
-    <h1>Liste des étudiants</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                // Pas propre, mais possible. On va placer du code PHP au milieu du HTML
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1>Liste des étudiants</h1>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    // Pas propre, mais possible. On va placer du code PHP au milieu du HTML
 
-                // Parcours du tableau des étudiants
-                foreach( $studentsList as $student )
-                {
-                    echo '<tr>';
+                    // Parcours du tableau des étudiants
+                    foreach( $studentsList as $student )
+                    {
+                        echo '<tr>';
                         echo '<th scope="row">' . $student['id'] .'</th>';
                         echo '<td>' . $student['nom'] .'</td>';
                         echo '<td>' . $student['prenom'] .'</td>';
                         echo '<td> <a href="edit.php?id=' . $student['id'] . '">Editer</a> - Supprimer</td>';
-                    echo '</tr>';
-                }
-            ?>
-        </tbody>
-    </table>
+                        echo '</tr>';
+                    }
+                    ?>
+                    </tbody>
+                </table>
 
-    <a href="edit.php" class="btn btn-primary">Ajout</a>
+                <a href="edit.php" class="btn btn-primary">Ajout</a>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
